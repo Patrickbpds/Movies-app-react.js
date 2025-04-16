@@ -14,17 +14,23 @@ const MovieCard = ({ movie }) => {
   };
 
   return (
-    <div className="border p-4 rounded shadow-md">
-      <h2 className="font-semibold text-lg mb-2">{movie.title}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-        alt={movie.title}
-      />
-
+    <div className="p-4 rounded-xl shadow-lg bg-gradient-to-r from-[#080a3d] to-[#241940]">
+      <h2 className="font-bold text-xl text-white mb-3 truncate text-center">
+        {movie.title}
+      </h2>
+      <div className="w-full flex justify-center mb-3">
+        <img
+          src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+          alt={movie.title}
+          className="rounded-lg shadow-md"
+        />
+      </div>
       <button
         onClick={toggleFavorite}
-        className={`mt-2 px-3 py-1 rounded ${
-          isFavorite(movie.id) ? "bg-yellow-300" : "bg-yellow-800/90"
+        className={`w-full flex items-center justify-center mt-2 px-3 py-1 rounded text-white transition ${
+          isFavorite(movie.id)
+            ? "bg-yellow-400 hover:bg-yellow-600"
+            : "bg-yellow-800 hover:bg-yellow-500"
         }`}
       >
         {isFavorite(movie.id) ? "★" : "☆"}
