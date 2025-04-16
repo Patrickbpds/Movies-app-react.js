@@ -1,32 +1,36 @@
-const MovieCard = ({ movie:
-    { title, vote_average, poster_path, release_date, original_language }
-  }) => {
-    return (
-      <div className="movie-card">
-        <img
-          src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : '/no-movie.png'}
-          alt={title}
-        />
-  
-        <div className="mt-4">
-          <h3>{title}</h3>
-  
-          <div className="content">
-            <div className="rating">
-              <img src="star.svg" alt="Star Icon" />
-              <p>{vote_average ? vote_average.toFixed(1) : 'N/A'}</p>
-            </div>
-  
-            <span>•</span>
-            <p className="lang">{original_language}</p>
-  
-            <span>•</span>
-            <p className="year">
-              {release_date ? release_date.split('-')[0] : 'N/A'}
-            </p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-  export default MovieCard
+import { useContext } from "react";
+import { FavoritesContext } from "../context/FavoritesContext";
+
+const MovieCard = ({ movie }) => {
+  const { addFavorite, removeFavorite, isFavorite } =
+    useContext(FavoritesContext);
+
+  const toggleFavorite = () => {
+    if (isFavorite(movie.id)) {
+      removeFavorite(movie.id);
+    } else {
+      addFavorite(movie);
+    }
+  };
+
+  return (
+    <div className="border p-4 rounded shadow-md">
+      <h2 className="font-semibold text-lg mb-2">{movie.title}</h2>
+      <img
+        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+        alt={movie.title}
+      />
+
+      <button
+        onClick={toggleFavorite}
+        className={`mt-2 px-3 py-1 rounded ${
+          isFavorite(movie.id) ? "bg-yellow-300" : "bg-yellow-800/90"
+        }`}
+      >
+        {isFavorite(movie.id) ? "★" : "☆"}
+      </button>
+    </div>
+  );
+};
+
+export default MovieCard;
