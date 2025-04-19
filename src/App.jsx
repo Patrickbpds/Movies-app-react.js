@@ -95,21 +95,26 @@ const App = () => {
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </header>
 
-        {/* Navegação simples */}
         <nav className="mt-6 mb-4 flex gap-4 justify-center">
           <button
             onClick={() => setShowFavorites(false)}
-            className={`px-4 py-2 rounded ${
-              !showFavorites ? "bg-blue-600 text-white" : "bg-gray-200"
-            }`}
+            className={`px-5 py-2.5 rounded-2xl font-bold shadow-md transition-all duration-200
+      ${
+        !showFavorites
+          ? "bg-gradient-to-r from-[#080a3d] to-[#241940] text-white"
+          : "bg-[#ebe7ff] text-[#3a3b8d] hover:bg-[#d8d4f0]"
+      } focus:outline-none focus:ring-2 focus:ring-indigo-300`}
           >
             Home
           </button>
           <button
             onClick={() => setShowFavorites(true)}
-            className={`px-4 py-2 rounded ${
-              showFavorites ? "bg-blue-600 text-white" : "bg-gray-200"
-            }`}
+            className={`px-5 py-2.5 rounded-2xl font-bold shadow-md transition-all duration-200
+      ${
+        showFavorites
+          ? "bg-gradient-to-r from-[#080a3d] to-[#241940] text-white"
+          : "bg-[#ebe7ff] text-[#3a3b8d] hover:bg-[#d8d4f0]"
+      } focus:outline-none focus:ring-2 focus:ring-indigo-300`}
           >
             My Favorites
           </button>
