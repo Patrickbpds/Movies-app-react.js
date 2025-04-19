@@ -39,14 +39,17 @@ const App = () => {
       const response = await fetch(endpoint, API_OPTIONS);
 
       if (!response.ok) {
-        throw new Error("Failed to fetch movies");
+        const errorData = await response.json();
+        throw new Error(errorData.status_message || "Failed to fetch movies");
       }
 
       const data = await response.json();
 
-      if (data.Response === "False") {
-        setErrorMessage(data.Error || "Failed to fetch movies");
+      if (data.results && data.results.length === 0) {
         setMovieList([]);
+        setErrorMessage(
+          query ? `No movies found for "${query}"` : "No movies available"
+        );
         return;
       }
 
