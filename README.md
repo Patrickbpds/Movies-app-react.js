@@ -1,6 +1,7 @@
 <div align="center">
 
- # 🚀 THIS FIND MOVIES APP
+# 🚀 THIS FIND MOVIES APP
+
 <div>
     <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
     <img src="https://img.shields.io/badge/-Appwrite-black?style=for-the-badge&logoColor=white&logo=appwrite&color=FD366E" alt="appwrite" />
@@ -15,13 +16,11 @@
   ### <B>FindMovies</B> is an application that helps you find and explore movies quickly and intuitively. With a modern interface and advanced features, you can search thousands of movies, view details, and choose your favorites effortlessly.</div>
  <hr>
 
-
-
- ## 📸 Demonstration
+## 📸 Demonstration
 
  <div align="center">
   <br />
-      <img src="https://i.ibb.co/xKwQh0s3/Captura-de-tela-2025-02-22-110340.png" alt="Project Banner"/>
+      <img src="https://i.ibb.co/5XqSKYnR/Captura-de-tela-2025-04-19-211125.png" alt="Project Banner"/>
   <br />
  <hr>
 </div>
